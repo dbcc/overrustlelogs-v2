@@ -22,7 +22,7 @@ func (z ZSTDStore) Store(path string, data []byte) error {
 	return ioutil.WriteFile(gzPath(path), d, 0644)
 }
 
-// Load returns uncompressed data from a compressed file
+// Load returns decompressed data from a compressed file
 func (z ZSTDStore) Load(path string) ([]byte, error) {
 	d, err := ioutil.ReadFile(gzPath(path))
 	if err != nil {

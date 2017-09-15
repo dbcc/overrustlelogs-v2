@@ -54,7 +54,7 @@ func TestZSTDStore_Compress(t *testing.T) {
 	}
 }
 
-func TestZSTDStore_Uncompress(t *testing.T) {
+func TestZSTDStore_Decompress(t *testing.T) {
 	z := ZSTDStore{}
 	type args struct {
 		path string
@@ -71,7 +71,7 @@ func TestZSTDStore_Uncompress(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if err := tt.z.Decompress(tt.args.path); (err != nil) != tt.wantErr {
-				t.Errorf("ZSTDStore.Uncompress() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ZSTDStore.Decompress() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}
